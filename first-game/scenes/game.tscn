@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c66f2tiagg1sr"]
 
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://20rp4jtjat5r" path="res://scripts/game_manager.gd" id="1_vtaks"]
 [ext_resource type="Texture2D" uid="uid://dtdncmd6dus80" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://eepn1ofbhvwu" path="res://scenes/longplatform_grass.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://g5n5yabn05aj" path="res://scenes/longplatform_snow.tscn" id="4_iywne"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b8bg8n6sp5qns" path="res://scenes/longplatform_dune.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://oxv0c0syiq8k" path="res://scenes/slime_green.tscn" id="8_gee14"]
+[ext_resource type="FontFile" uid="uid://jgv88f60q8tg" path="res://assets/fonts/PixelOperator8.ttf" id="10_kvpfn"]
+[ext_resource type="FontFile" uid="uid://cuhjqidghnmi2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -255,6 +258,21 @@ _data = {
 }
 
 [node name="Game" type="Node2D" unique_id=1946218242]
+
+[node name="Game Manager" type="Node" parent="." unique_id=742506543]
+unique_name_in_owner = true
+script = ExtResource("1_vtaks")
+
+[node name="CoinCount" type="Label" parent="Game Manager" unique_id=1227296663]
+offset_left = 2459.0
+offset_top = -208.0
+offset_right = 2560.0
+offset_bottom = -189.0
+theme_override_fonts/font = ExtResource("11_kvpfn")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1846667170]
 tile_set = SubResource("TileSet_lbhrr")
@@ -525,3 +543,49 @@ autoplay = &"move"
 
 [node name="Slime Green" parent="." unique_id=830745909 instance=ExtResource("8_gee14")]
 position = Vector2(440, 97)
+
+[node name="Labels" type="Node" parent="." unique_id=1720095555]
+
+[node name="Label" type="Label" parent="Labels" unique_id=859600972]
+offset_left = 43.0
+offset_top = 17.0
+offset_right = 102.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("10_kvpfn")
+theme_override_font_sizes/font_size = 8
+text = "Press space to jump."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Labels" unique_id=1568453385]
+offset_left = 335.0
+offset_top = 34.0
+offset_right = 470.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_kvpfn")
+theme_override_font_sizes/font_size = 8
+text = "Be careful,  there's an enemy up ahead ->"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Labels" unique_id=668226311]
+offset_left = 649.0
+offset_top = 42.0
+offset_right = 765.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("10_kvpfn")
+theme_override_font_sizes/font_size = 8
+text = "Moving platforms can take you over hazardous areas."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Labels" unique_id=1157832064]
+offset_left = 1621.0
+offset_top = -303.0
+offset_right = 1735.0
+offset_bottom = -284.0
+theme_override_fonts/font = ExtResource("10_kvpfn")
+theme_override_font_sizes/font_size = 8
+text = "Lots of secrets can be found too!"
+horizontal_alignment = 1
+autowrap_mode = 2
